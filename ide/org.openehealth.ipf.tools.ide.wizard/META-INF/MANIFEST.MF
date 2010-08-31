@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IPF IDE Wizard plug-in
+Bundle-SymbolicName: org.openehealth.ipf.tools.ide.wizard;singleton:=true
+Bundle-Version: 0.0.0
+Bundle-Activator: org.openehealth.ipf.tools.ide.wizard.osgi.NewIpfProjectWizardActivator
+Bundle-Vendor: Open eHealth Foundation
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.ide,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.launching,
+ org.eclipse.debug.ui,
+ org.eclipse.pde.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.openehealth.ipf.tools.ide.wizard.codegen.model,
+ org.openehealth.ipf.tools.ide.wizard.osgi,
+ org.openehealth.ipf.tools.ide.wizard.pages,
+ org.openehealth.ipf.tools.ide.wizard.plugin,
+ org.openehealth.ipf.tools.ide.wizard.resources,
+ org.openehealth.ipf.tools.ide.wizard.util

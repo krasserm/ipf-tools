@@ -1,0 +1,21 @@
+<%@ jet package="org.openehealth.ipf.tools.ide.wizard.codegen.model" imports="java.util.* org.openehealth.ipf.tools.ide.wizard.plugin.*" class="ManifestMF"%>
+<%PluginFieldData pluginData = (PluginFieldData)argument;%>
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: <%=pluginData.getName()%>
+Bundle-SymbolicName: <%=pluginData.getId()%>
+Bundle-Version: <%=pluginData.getVersion()%>
+Bundle-Vendor: <%=pluginData.getProvider()%>
+Build-Jdk: <%=System.getProperty("java.runtime.version")%>
+Created-By: <%=System.getProperty("java.runtime.version")%> (<%=System.getProperty("java.vm.vendor")%>)
+<%if (pluginData.isUseExtension()){ %>
+Extension-Classes: <%=pluginData.getExtensionPackage().replaceAll("\\/", "\\.")%>.<%=pluginData.getExtensionName().substring(0, pluginData.getExtensionName().lastIndexOf("."))%>
+<%}%>
+<%Iterator<String> exportPackagesIterator = pluginData.getExportPackageNames().iterator(); if (exportPackagesIterator.hasNext()) { String pack = exportPackagesIterator.next();%>
+Export-Package: <%=pack%><%while(exportPackagesIterator.hasNext()) { pack = exportPackagesIterator.next();%>,
+ <%=pack%><%}%>
+<%}%>
+<%Iterator<String> importPackagesIterator = pluginData.getImportPackageNames().iterator(); if (importPackagesIterator.hasNext()) { String pack = importPackagesIterator.next();%>
+Import-Package: <%=pack%><%while(importPackagesIterator.hasNext()) { pack = importPackagesIterator.next();%>,
+ <%=pack%><%}%>
+<%}%>

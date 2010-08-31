@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.openehealth.ipf.tools.ide.wizard" default="java1" basedir=".">
+	<property name="templates.basedir" value="${basedir}/src/main/resources/templates" />
+	<property name="eclipse.home" value="C:/_build/eclipse-manager" />
+	<property name="launcher.name" value="org.eclipse.equinox.launcher_1.0.200.v20090520.jar" />
+	<target name="java1" depends="java2">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/build.propertiesjet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>
+	
+	<target name="java2" depends="java3">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/manifest.mfjet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>
+
+	<target name="java3" depends="java4">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/routeContext.xmljet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>	
+	
+	<target name="java4" depends="java5">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/routeOsgiContext.xmljet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>
+
+	<target name="java5" depends="java6">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/sampleExtension.groovyjet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>	
+
+	<target name="java6" depends="java7">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/sampleRouteBuilder.groovyjet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>
+		
+	<target name="java7" depends="java8">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/sampleRouteTest.javajet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>
+	
+	<target name="java8" depends="java9">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/testContext.xmljet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>
+	
+	<target name="java9">
+	       <java jar="${eclipse.home}/plugins/${launcher.name}" fork="yes">	
+			   <jvmarg value="-Xmx900M"/>
+			   <jvmarg value="-Djava.compiler=NONE"/>
+			   <jvmarg value="-verify"/>
+			   <arg line="-application org.eclipse.emf.codegen.CodeGen"/>
+			   <arg line="${templates.basedir}/groovy.prefsjet"/>
+			   <arg line="${basedir}/src/main/java"/>
+			   <arg line="org.eclipse.core.launcher.Main -noupdate -data ${basedir}/target/workspace"/>
+	       </java>
+	</target>
+</project>

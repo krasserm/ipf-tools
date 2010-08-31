@@ -1,0 +1,14 @@
+<%@ jet package="org.openehealth.ipf.tools.ide.wizard.codegen.model" imports="org.openehealth.ipf.tools.ide.wizard.plugin.*" class="SampleRouteBuilderGroovy"%>
+<%PluginFieldData pluginData = (PluginFieldData)argument;%>
+package <%=pluginData.getRouteBuilderPackage().replaceAll("\\/", "\\.")%>
+
+import org.apache.camel.spring.SpringRouteBuilder
+
+
+public class <%=pluginData.getRouteBuilderName().substring(0, pluginData.getRouteBuilderName().lastIndexOf("."))%> extends SpringRouteBuilder {
+
+     void configure() {
+
+     }
+    
+}

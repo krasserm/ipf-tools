@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JMX Explorer Test plug-in
+Bundle-SymbolicName: org.openehealth.ipf.tools.manager.jmxexplorer.test
+Bundle-Version: 0.0.0
+Bundle-Vendor: Open eHealth Foundation
+Require-Bundle: org.junit;bundle-version="[3.8.2,4.0.0)",
+ org.openehealth.ipf.tools.manager.jmxexplorer

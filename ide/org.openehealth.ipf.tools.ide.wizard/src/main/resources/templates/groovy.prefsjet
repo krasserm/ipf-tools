@@ -1,0 +1,4 @@
+<%@ jet package="org.openehealth.ipf.tools.ide.wizard.codegen.model" class="GroovyPrefs"%>
+#<%=new java.text.SimpleDateFormat("EEE MMM d HH:mm:ss z yyyy").format(new java.util.Date())%>
+eclipse.preferences.version=1
+groovy.compiler.output.path=bin-groovy

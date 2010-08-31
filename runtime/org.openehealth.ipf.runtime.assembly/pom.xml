@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.openehealth.ipf.runtime</groupId>
+    <artifactId>runtime-assembly</artifactId>
+    <name>runtime-assembly</name>
+    <version>2.2-SNAPSHOT</version>
+    <description>Standalone Runtime Assembly Module</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <osgi-platform>equinox</osgi-platform>
+        <osgi-platform-version>3.5.1</osgi-platform-version>
+    </properties>
+
+    <parent>
+        <groupId>org.openehealth.ipf.runtime</groupId>
+        <artifactId>runtime</artifactId>
+        <version>2.2-SNAPSHOT</version>
+    </parent>
+  
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>maven-html-to-pdf</artifactId>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                    <phase>compile</phase>
+                </execution>
+            </executions>
+            <configuration>
+                <page>http://repo.openehealth.org/confluence/display/ipftools/IPF+Runtime+single</page>
+                <head><![CDATA[ 
+                    <title>Open eHealth Integration Platform Tools Runtime</title>
+                    <link rel="stylesheet" href="file:${basedir}/src/main/resources/styles/site.css" type="text/css" />
+                    <p><div style="page-break-after: always" ><h1>Open eHealth Integration Platform Tools Runtime Reference manual</h1>
+                    <img border="0" align="absmiddle" src="file:${basedir}/src/main/resources/styles/oehf.png" /></div>
+                    <h2>Table of contents</h2>
+                    <hr>
+                    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">]]>
+                </head>
+                <pdf>${project.build.directory}/site/manual/ipf-runtime-${project.version}.pdf</pdf>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.ops4j</groupId>
+            <artifactId>maven-pax-plugin</artifactId>
+            <executions>
+                <execution>
+                <id>create-runtime-standalone</id>
+                <phase>install</phase>
+                <goals>
+                    <goal>provision</goal>
+                </goals>
+                <configuration>
+                <provision>
+            <param>--platform=${osgi-platform}</param>
+            <param>--version=${osgi-platform-version}</param>
+            <param>--startLevel=5</param>
+            <param>--bundleStartLevel=4</param>
+            <param>--executor=noop</param>
+            <param>--ee=J2SE-1.5</param>
+            <param>--vmo=-Dosgi.classloader.lock=classname</param>
+            <param>--workingDirectory=${project.build.directory}/runtime</param>
+            <param>--repositories=+http://repo1.maven.org/maven2,http://repo.openehealth.org/maven2/snapshots@snapshots,http://repo.openehealth.org/maven2/releases</param>
+            <param>mvn:org.eclipse.equinox/cm/${equinox-cm-version}@1</param>
+            <param>mvn:javax.persistence/com.springsource.javax.persistence/${springsource-persistence-api-version}@nostart</param>
+            <param>mvn:org.aspectj/com.springsource.org.aspectj.weaver/${springsource-aspectj-version}@nostart</param>
+            <param>mvn:org.aspectj/com.springsource.org.aspectj.runtime/${springsource-aspectj-version}@nostart</param>
+            <param>mvn:javax.ejb/com.springsource.javax.ejb/${springsource-ejb-api-version}@nostart</param>
+            <param>mvn:org.apache.derby/com.springsource.org.apache.derby.drda/${springsource-derby-version}@nostart</param>
+            <param>mvn:org.apache.derby/com.springsource.org.apache.derby/${springsource-derby-version}@nostart</param>
+            <param>mvn:org.apache.derby/com.springsource.org.apache.derby.client/${springsource-derby-version}@nostart</param>
+            <param>mvn:org.objectweb.asm/com.springsource.org.objectweb.asm.attrs/${springsource-asm-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.httpclient/${springsource-commons-httpclient-version}@nostart</param>
+            <param>mvn:com.opensymphony.quartz/com.springsource.org.quartz/${springsource-quartz-version}@nostart</param>
+            <param>mvn:org.jboss.javassist/com.springsource.javassist/${springsource-javassist-version}@nostart</param>
+            <param>mvn:org.apache.log4j/com.springsource.org.apache.log4j/${springsource-log4j-version}@nostart</param>
+            <param>mvn:net.sourceforge.cglib/com.springsource.net.sf.cglib/${springsource-cglib-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.lang/${springsource-commons-lang-version}@nostart</param>
+            <param>mvn:org.apache.lucene/com.springsource.org.apache.lucene/${springsource-lucene-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.pool/${springsource-commons-pool-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.logging/${springsource-commons-logging-version}@nostart</param>
+            <param>mvn:org.slf4j/com.springsource.slf4j.api/${slf4j-version}@nostart</param>
+            <param>mvn:org.slf4j/com.springsource.slf4j.log4j/${slf4j-version}@nostart</param>
+            <param>mvn:org.slf4j/com.springsource.slf4j.org.apache.commons.logging/${slf4j-version}@nostart</param>
+            <param>mvn:org.jasypt/com.springsource.org.jasypt.encryption/${springsource-jasypt-version}@nostart</param>
+            <param>mvn:org.dom4j/com.springsource.org.dom4j/${springsource-dom4j-version}@nostart</param>
+            <param>mvn:javax.annotation/com.springsource.javax.annotation/${springsource-annotations-api-version}@nostart</param>
+            <param>mvn:javax.activation/com.springsource.javax.activation/${springsource-activation-version}@nostart</param>
+            <param>mvn:org.jdom/com.springsource.org.jdom/${jdom-version}@nostart</param>
+            <param>mvn:org.antlr/com.springsource.antlr/${springsource-antlr-version}@nostart</param>
+            <param>mvn:org.aopalliance/com.springsource.org.aopalliance/${springsource-aopalliance-version}@start</param>
+            <param>mvn:javax.xml.rpc/com.springsource.javax.xml.rpc/${springsource-rpc-api-version}@nostart</param>
+            <param>mvn:javax.transaction/com.springsource.javax.transaction/${springsource-transaction-api-version}@nostart</param>
+            <param>mvn:org.hibernate/com.springsource.org.hibernate/${hibernate-version}@nostart</param>
+            <param>mvn:org.hibernate/com.springsource.org.hibernate.search/${hibernate-search-version}@nostart</param>
+            <param>mvn:org.hibernate/com.springsource.org.hibernate.annotations/${hibernate-annotations-version}@nostart</param>
+            <param>mvn:org.hibernate/com.springsource.org.hibernate.annotations.common/${hibernate-annotations-common-version}@nostart</param>
+            <param>mvn:javax.xml.soap/com.springsource.javax.xml.soap/${springsource-soap-api-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.collections/${springsource-commons-collections-version}@nostart</param>
+            <param>mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${geronimo-management-spec-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.io/${springsource-commons-io-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.cli/${springsource-commons-cli-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.codec/${springsource-commons-codec-version}@nostart</param>
+            <param>mvn:org.objectweb.asm/com.springsource.org.objectweb.asm/${springsource-asm-version}@nostart</param>
+            <param>mvn:org.apache.commons/com.springsource.org.apache.commons.dbcp/${springsource-commons-dbcp-version}@nostart</param>
+            <param>mvn:xml-resolver/xml-resolver/${xml-resolver-version}@nostart</param>
+            <param>mvn:org.apache.activemq/activemq-core/${activemq-version}@nostart</param>
+            <param>mvn:org.apache.activemq/kahadb/${activemq-version}@nostart</param>
+            <param>mvn:org.apache.camel/camel-osgi/${camel-version}@start</param>
+            <param>mvn:org.apache.camel/camel-spring/${camel-version}@nostart</param>
+            <param>mvn:org.apache.camel/camel-jms/${camel-version}@nostart</param>
+            <param>mvn:org.apache.camel/camel-mina/${camel-version}@nostart</param>
+            <param>mvn:org.apache.camel/camel-core/${camel-version}@start</param>
+            <param>mvn:org.apache.camel/camel-http/${camel-version}@start</param>
+            <param>mvn:org.apache.camel/camel-jetty/${camel-version}@start</param>
+            <param>mvn:org.apache.camel/camel-hl7/${camel-version}@start</param>
+            <param>mvn:org.apache.cxf/cxf-bundle/${cxf-version}@start</param>
+            <param>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.mina/${servicemix-mina-version}@start</param>
+            <param>mvn:org.fusesource.commonman/commons-management/${commons-management-version}@nostart</param>
+            <param>mvn:javax.wsdl/com.springsource.javax.wsdl/${springsource-wsdl-version}@nostart</param>
+            <param>mvn:org.apache.geronimo.specs/geronimo-javamail_1.4_spec/${geronimo-javamail-api-version}@nostart</param>
+            <param>mvn:org.apache.geronimo.specs/geronimo-ws-metadata_2.0_spec/${geronimo-ws-api-version}@nostart</param>
+            <param>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlschema/${servicemix-xmlschema-version}@nostart</param>
+            <param>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlsec/${servicemix-xmlsec-version}@nostart</param>
+            <param>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.woodstox/${servicemix-woodstox-version}@start</param>
+            <param>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.neethi/${servicemix-neethi-version}@nostart</param>
+            <param>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-impl/${servicemix-jaxb-impl-version}@start</param>
+            <param>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxb-api-2.1/${servicemix-jaxb-api-version}@start</param>
+            <param>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxws-api-2.1/${servicemix-jaxws-api-version}@nostart</param>
+            <param>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.saaj-api-1.3/${servicemix-saaj-api-version}@nostart</param>
+            <param>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.stax-api-1.0/${servicemix-stax-api-version}@start</param>
+            <param>mvn:xerces/xercesImpl/${xerces-impl-osgi-version}@nostart</param>
+            <param>mvn:xalan/serializer/${serializer-version}@nostart</param>
+            <param>mvn:org.apache.felix/org.apache.felix.fileinstall/${fileinstall-version}@2</param>
+            <param>mvn:org.springframework/org.springframework.context/${spring-framework-version}@nostart</param>
+            <param>mvn:org.springframework/org.springframework.beans/${spring-framework-version}@nostart</param>
+            <param>mvn:org.springframework/org.springframework.jdbc/${spring-framework-version}@nostart</param>
+            <param>mvn:org.springframework/org.springframework.orm/${spring-framework-version}@nostart</param>
+            <param>mvn:org.springframework/org.springframework.jms/${spring-framework-version}@nostart</param>
+            <param>mvn:org.springframework/org.springframework.transaction/${spring-framework-version}@nostart</param>
+            <param>mvn:org.springframework/org.springframework.aop/${spring-framework-version}@start</param>
+            <param>mvn:org.springframework/org.springframework.core/${spring-framework-version}@nostart</param>
+            <param>mvn:org.springframework/org.springframework.web/${spring-framework-version}@nostart</param>
+            <param>mvn:org.springframework.osgi/org.springframework.osgi.extender/${spring-osgi-version}@2</param>
+            <param>mvn:org.springframework.osgi/org.springframework.osgi.core/${spring-osgi-version}@nostart</param>
+            <param>mvn:org.springframework.osgi/org.springframework.osgi.io/${spring-osgi-version}@nostart</param>
+            <param>mvn:ca.uhn.hapi/hapi-osgi/${hapi-osgi-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-client/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-http/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-server/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-io/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-jmx/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-xml/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-webapp/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-servlet/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-servlets/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-security/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-continuation/${jetty-version}@nostart</param>
+            <param>mvn:org.eclipse.jetty/jetty-util/${jetty-version}@nostart</param>
+            <param>mvn:javax.jms/jms/${jms-version}@nostart</param>
+            <param>mvn:xml-apis/xml-apis/${xml-apis-version}@nostart</param>
+            <param>mvn:xalan/xalan/${xalan-version}@nostart</param>
+            <param>mvn:joda-time/joda-time/${joda-time-osgi-version}@nostart</param>
+            <param>mvn:net.sf.saxon/saxon/${saxon-osgi-version}@nostart</param>
+            <param>mvn:net.sf.saxon/saxon-dom/${saxon-osgi-version}@nostart</param>
+            <param>mvn:org.codehaus.groovy/groovy-all/${groovy-version}@1</param>
+            <param>mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/${pax-web-version}@2</param>
+            <param>mvn:org.ops4j.pax.web/pax-web-jetty-bundle/${pax-web-version}@2</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-commons/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-extender-basic/${ipf-version}@2</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-extender-spring/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-jms/${ipf-version}@start</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-flow-repository/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-flow-manager/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-log/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-ihe-atna/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-ihe-pixpdq/${ipf-version}@start</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-ihe-pixpdqv3/${ipf-version}@start</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-ihe-xcpd/${ipf-version}@start</param>
+            <param>mvn:org.openehealth.ipf.osgi/osgi-config-ihe-xds/${ipf-version}@start</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-core/${ipf-version}@2</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-xml/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-flow/${ipf-version}@3</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-map/${ipf-version}@2</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-ihe-atna/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-ihe-pixpdq/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-ihe-pixpdqv3/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-ihe-hl7v3/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-ihe-ws/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-ihe-xcpd/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.commons/commons-ihe-xds/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.modules/modules-hl7/${ipf-version}@2</param>
+            <param>mvn:org.openehealth.ipf.modules/modules-hl7dsl/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-flow/${ipf-version}@3</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-core/${ipf-version}@3</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-hl7/${ipf-version}@3</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-ihe-ws/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-ihe-xcpd/${ipf-version}@3</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-ihe-xds/${ipf-version}@3</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-ihe-mllp/${ipf-version}@3</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-ihe-pixpdq/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-ihe-pixpdqv3/${ipf-version}@3</param>
+            <param>mvn:org.openehealth.ipf.platform-camel/platform-camel-ihe-atna/${ipf-version}@3</param>
+            <param>mvn:org.openhealthtools.ihe/atna-bundle/${oht-atna-version}@start</param>
+                </provision>
+            </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.ops4j</groupId>
+            <artifactId>maven-pax-plugin</artifactId>
+            <executions>
+                <execution>
+                <id>create-tutorial-bundles</id>
+                <phase>install</phase>
+                <goals>
+                    <goal>provision</goal>
+                </goals>
+                <configuration>
+                <provision>
+            <param>--platform=${osgi-platform}</param>
+            <param>--version=${osgi-platform-version}</param>
+            <param>--executor=noop</param>
+            <param>--workingDirectory=${project.build.directory}/tutorial</param>
+            <param>mvn:org.openehealth.ipf.tutorials/tutorials-osgi-mapping/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.tutorials/tutorials-osgi-extension/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.tutorials/tutorials-osgi-service/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.tutorials/tutorials-osgi-route-file/${ipf-version}@nostart</param>
+            <param>mvn:org.openehealth.ipf.tutorials/tutorials-osgi-route-web/${ipf-version}@nostart</param>
+                </provision>
+                </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+                <execution>
+                <id>create-runtime-assembly</id>
+                <phase>install</phase>
+                <goals>
+                    <goal>assembly</goal>
+                </goals>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${basedir}/src/main/assembly/bin.xml</descriptor>
+                    </descriptors>
+                    <finalName>ipf-runtime-${project.version}</finalName>
+                </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+                <execution>
+                <id>create-tutorial-assembly</id>
+                <phase>install</phase>
+                <goals>
+                    <goal>assembly</goal>
+                </goals>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${basedir}/src/main/assembly/bin-tutorial.xml</descriptor>
+                    </descriptors>
+                    <finalName>ipf-tutorials-osgi-${project.version}</finalName>
+                </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+                <execution>
+                <id>publish-runtime-archive</id>
+                <phase>install</phase>
+                <configuration>
+                <tasks>
+                    <condition property="targetNotSet">
+                        <not>
+                            <isset property="product.target" />
+                        </not>
+                    </condition>
+                    <condition property="product.target" value="${project.build.directory}">
+                        <istrue value="${targetNotSet}" />
+                    </condition>
+                    <mkdir dir="${product.target}" description="Create the update-site folder" />
+                    <echo message="Copying the runtime archive to ${product.target}" />
+                    <copy file="${project.build.directory}/ipf-runtime-${project.version}.zip" todir="${product.target}" />
+
+                    <condition property="tutorialTargetNotSet">
+                        <not>
+                            <isset property="tutorial.target" />
+                        </not>
+                    </condition>
+                    <condition property="tutorial.target" value="${project.build.directory}">
+                        <istrue value="${tutorialTargetNotSet}" />
+                    </condition>
+                    <mkdir dir="${tutorial.target}" description="Create the update-site folder" />
+                    <echo message="Copying the tutorial archive to ${tutorial.target}" />
+                    <copy file="${project.build.directory}/ipf-tutorials-osgi-${project.version}.zip" todir="${tutorial.target}" />
+
+                    <condition property="manualTargetNotSet">
+                        <not>
+                            <isset property="manual.target" />
+                        </not>
+                    </condition>
+                    <condition property="manual.target" value="${project.build.directory}">
+                        <istrue value="${manualTargetNotSet}" />
+                    </condition>
+                    <mkdir dir="${manual.target}" description="Create the manuals folder" />
+                    <echo message="Copying the pdf manual to ${manual.target}" />
+                    <copy file="${project.build.directory}/site/manual/ipf-runtime-${project.version}.pdf" todir="${manual.target}" />
+                </tasks>
+                </configuration>
+                <goals>
+                    <goal>run</goal>
+                </goals>
+                </execution>
+            </executions>
+        </plugin>
+        </plugins>
+    </build>
+</project>

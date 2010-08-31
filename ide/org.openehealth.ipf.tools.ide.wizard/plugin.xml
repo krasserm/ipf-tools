@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="ipfProjectWizard"
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.openehealth.ipf.tools.category"
+            name="%wizard.project.category">
+      </category>
+      <wizard
+            category="org.openehealth.ipf.tools.category"
+            class="org.openehealth.ipf.tools.ide.wizard.pages.NewIpfProjectWizard"
+            icon="images/ipf.png"
+            id="ipfNewProjectWizard"
+            name="%wizard.project.name"
+            project="true">
+      </wizard>
+   </extension>
+
+</plugin>

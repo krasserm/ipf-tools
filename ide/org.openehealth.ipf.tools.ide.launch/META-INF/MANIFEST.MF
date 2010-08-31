@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IPF IDE launch plug-in
+Bundle-SymbolicName: org.openehealth.ipf.tools.ide.launch;singleton:=true
+Bundle-Version: 0.0.0
+Bundle-Activator: org.openehealth.ipf.tools.ide.launch.osgi.IpfLaunchActivator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.debug.ui,
+ org.eclipse.jdt.debug.ui,
+ org.eclipse.jdt.launching,
+ org.eclipse.pde.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.openehealth.ipf.tools.ide.launch.delegate,
+ org.openehealth.ipf.tools.ide.launch.osgi
+Bundle-Vendor: Open eHealth Foundation

@@ -1,0 +1,25 @@
+<%@ jet package="org.openehealth.ipf.tools.ide.wizard.codegen.model" imports="org.openehealth.ipf.tools.ide.wizard.plugin.*" class="RouteOsgiContextXML"%>
+<%PluginFieldData pluginData = (PluginFieldData)argument;%>
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:osgi="http://www.springframework.org/schema/osgi"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/osgi
+http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+<%if (pluginData.isUseJms()) {%>
+    <osgi:reference id="jms" bean-name="jms" timeout="10000" 
+        interface="org.apache.camel.Component">
+    </osgi:reference>
+<%}%>
+<%if (pluginData.isUseFlowManagement()) {%>
+    <osgi:reference id="flowManager" timeout="10000" 
+        interface="org.openehealth.ipf.commons.flow.FlowManager">
+    </osgi:reference>
+
+    <bean class="org.openehealth.ipf.platform.camel.flow.osgi.OsgiReplayStrategyRegistry" />
+<%}%>
+</beans>

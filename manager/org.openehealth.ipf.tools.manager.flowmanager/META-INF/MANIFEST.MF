@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IPF Manager FlowManager
+Bundle-SymbolicName: org.openehealth.ipf.tools.manager.flowmanager;singleton:=true
+Bundle-Version: 0.0.0
+Bundle-Activator: org.openehealth.ipf.tools.manager.flowmanager.Activator
+Bundle-Vendor: Open eHealth Foundation
+Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
+Export-Package: 
+ org.openehealth.ipf.tools.manager.flowmanager,
+ org.openehealth.ipf.tools.manager.flowmanager.impl,
+ org.openehealth.ipf.tools.manager.flowmanager.ui.adapter,
+ org.openehealth.ipf.tools.manager.flowmanager.ui.editor,
+ org.openehealth.ipf.tools.manager.flowmanager.ui.handlers,
+ org.openehealth.ipf.tools.manager.flowmanager.ui.jobs,
+ org.openehealth.ipf.tools.manager.flowmanager.ui.menu,
+ org.openehealth.ipf.tools.manager.flowmanager.ui.preferences,
+ org.openehealth.ipf.tools.manager.flowmanager.ui.properties,
+ org.openehealth.ipf.tools.manager.flowmanager.ui.view
+Bundle-ClassPath: .
+Require-Bundle: org.openehealth.ipf.tools.manager.connection,
+ org.eclipse.core.runtime;bundle-version="[3.4.0,4.0.0)",
+ org.eclipse.ui;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.ui.views;bundle-version="[3.4.0,4.0.0)"
+Import-Package: org.openehealth.ipf.commons.flow.transfer;version="2.0.0"

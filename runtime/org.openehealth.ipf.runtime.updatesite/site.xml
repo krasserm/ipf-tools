@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.openehealth.ipf.runtime.feature_0.0.0.jar"
+   id="org.openehealth.ipf.runtime.feature"
+   version="0.0.0">
+      <category name="org.openehealth.ipf.runtime"/>
+   </feature>
+   <category-def name="org.openehealth.ipf.runtime" label="IPF"/>
+</site>

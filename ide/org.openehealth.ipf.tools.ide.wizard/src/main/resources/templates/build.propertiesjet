@@ -1,0 +1,7 @@
+<%@ jet package="org.openehealth.ipf.tools.ide.wizard.codegen.model" class="BuildProperties"%>
+source.. = src/main/java/,\
+           src/main/groovy/,\
+           src/main/resources
+output.. = bin/
+bin.includes = META-INF/,\
+               .,\

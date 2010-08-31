@@ -1,0 +1,11 @@
+<%@ jet package="org.openehealth.ipf.tools.ide.wizard.codegen.model" imports="org.openehealth.ipf.tools.ide.wizard.plugin.*" class="SampleExtensionGroovy"%>
+<%PluginFieldData pluginData = (PluginFieldData)argument;%>
+package <%=pluginData.getExtensionPackage().replaceAll("\\/", "\\.")%>
+
+public class <%=pluginData.getExtensionName().substring(0, pluginData.getExtensionName().lastIndexOf("."))%> {
+
+     static extensions = {
+         
+     }
+    
+}

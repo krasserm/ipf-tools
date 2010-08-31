@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="org.eclipse.pde.ui.launcher.EquinoxLaunchConfiguration"
+            id="org.openehealth.ipf.tools.ide.launch.ipfLaunchConfigurationType"
+            modes="run, debug"
+            name="IPF Application">
+      </launchConfigurationType>
+   </extension>
+   <extension
+ 		 point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+ 	  <launchConfigurationTypeImage configTypeID="org.openehealth.ipf.tools.ide.launch.ipfLaunchConfigurationType"
+ 	        icon="icons/ipf.png" id="org.openehealth.ipf.tools.launch">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="org.openehealth.ipf.tools.ide.launch.delegate.IpfTabGroup"
+            id="org.openehealth.ipf.tools.ide.launch.ipfLaunchConfigurationTabGroup"
+            type="org.openehealth.ipf.tools.ide.launch.ipfLaunchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+
+</plugin>
