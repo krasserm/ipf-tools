@@ -1,14 +1,7 @@
-The IPF Tools project focuses on tools for the eHealth Integration Framework "IPF":http://github.com/krasserm/ipf.
+The IPF Tools project focuses on tools for the eHealth Integration Framework "(IPF)":http://github.com/krasserm/ipf. The tools are based on the Eclipse Rich Client Platform (RCP):
 
-One category of tools is related to OSGi and the Eclipse Rich Client Platform (RCP):
-
-* The "IPF runtime":http://repo.openehealth.org/confluence/display/ipftools/IPF+Runtime is an IPF distribution that is running on the Equinox OSGi platform. It is available as Eclipse plugin or as standalone package. The runtime is used to develop OSGi-based IPF applications.
-* The "IPF IDE":http://repo.openehealth.org/confluence/display/ipftools/IPF+IDE supports developers in creating, testing and packaging IPF applications within the Eclipse plugin development environment (PDE) on top of the IPF runtime.
-* The "IPF manager":http://repo.openehealth.org/confluence/display/ipftools/IPF+Manager is an Eclipse plugin for managing IPF platform and application resources. 
-
-Another category is related to Maven:
-
-* The maven-dsldoc plugin is used to generate GDSL descriptors for IntelliJ IDEA. These support the IDE in doing code completions for IPF DSL extensions.
+* The "IPF Manager":http://repo.openehealth.org/confluence/display/ipftools/IPF+Manager is an Eclipse plugin for flow management and application management. 
+* The "IPF IDE":http://repo.openehealth.org/confluence/display/ipftools/IPF+IDE is an Eclipse plugin that supports developers in creating, testing and packaging IPF applications within the Eclipse plugin development environment (PDE) on top of the "IPF runtime":http://github.com/krasserm/ipf-runtime.
 
 h2. History
 
