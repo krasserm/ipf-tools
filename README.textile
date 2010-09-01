@@ -1,4 +1,4 @@
-The IPF Tools project focuses on tools for the eHealth Integration Framework "(IPF)":http://github.com/krasserm/ipf. The tools are based on the Eclipse Rich Client Platform (RCP):
+The IPF Tools project focuses on tools for the "eHealth Integration Framework":http://github.com/krasserm/ipf (IPF). The tools are based on the Eclipse Rich Client Platform (RCP):
 
 * The "IPF Manager":http://repo.openehealth.org/confluence/display/ipftools/IPF+Manager is an Eclipse plugin for flow management and application management. 
 * The "IPF IDE":http://repo.openehealth.org/confluence/display/ipftools/IPF+IDE is an Eclipse plugin that supports developers in creating, testing and packaging IPF applications within the Eclipse plugin development environment (PDE) on top of the "IPF runtime":http://github.com/krasserm/ipf-runtime.
