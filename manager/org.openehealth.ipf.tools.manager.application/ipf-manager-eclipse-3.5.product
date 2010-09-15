@@ -271,7 +271,6 @@
       <plugin id="com.springsource.slf4j.log4j" fragment="true"/>
       <plugin id="com.springsource.slf4j.org.apache.commons.logging"/>
       <plugin id="groovy-all"/>
-      <plugin id="javax.persistence"/>
       <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.servicemix.specs.stax-api-1.0"/>
       <plugin id="org.eclipse.compare.core"/>
