@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: IPF IDE launch plug-in
 Bundle-SymbolicName: org.openehealth.ipf.tools.ide.launch;singleton:=true
-Bundle-Version: 0.0.0
+Bundle-Version: 2.2.0.qualifier
 Bundle-Activator: org.openehealth.ipf.tools.ide.launch.osgi.IpfLaunchActivator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.ui,

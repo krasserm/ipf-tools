@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <description>IPF-Tools IDE update site.</description>
+    <feature 
+        url="org.openehealth.ipf.tools.ide.feature_2.2.0.qualifier" 
+        id="org.openehealth.ipf.tools.ide.feature" 
+        version="2.2.0.qualifier"> 
+        <category name="IPF Tools"/> 
+    </feature>
+    <category-def name="IPF Tools"
+        label="IPF Tools">
+    </category-def>
+</site>

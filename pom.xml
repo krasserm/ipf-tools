@@ -1,0 +1,417 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.openehealth.ipf.tools</groupId>
+    <artifactId>org.openehealth.ipf.tools</artifactId>
+    <version>2.2.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>IPF-Tools</name>
+
+    <properties>
+        <!-- Project configurations -->
+        <!-- project.build.sourceEncoding>UTF-8</project.build.sourceEncoding -->
+        <tycho-version>0.9.0</tycho-version>
+        <!-- Report version properties -->
+        <surefire-report-plugin-version>2.4.3</surefire-report-plugin-version>
+        <jxr-plugin-version>2.1</jxr-plugin-version>
+        <project-info-reports-plugin-version>2.1.2</project-info-reports-plugin-version>
+        <maven-dsldoc-plugin-version>1.1</maven-dsldoc-plugin-version>
+        
+
+        <!-- Default Bundle Properties -->
+        <osgi.bundle.vendor>Open eHealth Foundation</osgi.bundle.vendor>
+        <osgi.bundle.license>Apache License, Version 2.0;url=http://www.apache.org/licenses/LICENSE-2.0;description=OpenSource license provided by the Apache foundation</osgi.bundle.license>
+        <osgi.bundle.category>healthcare</osgi.bundle.category>
+        
+
+        <!-- Plugin version properties -->
+        <assembly-plugin-version>2.2-beta-2</assembly-plugin-version>
+        <bundle-plugin-version>2.1.0</bundle-plugin-version>
+        <enforcer-plugin-version>1.0-beta-1</enforcer-plugin-version>
+        <jar-plugin-version>2.2</jar-plugin-version>
+        <javadoc-plugin-version>2.6.1</javadoc-plugin-version>
+        <compiler-plugin-version>2.3.2</compiler-plugin-version>
+        <release-plugin-version>2.0</release-plugin-version>
+        <resources-plugin-version>2.4.2</resources-plugin-version>
+        <source-plugin-version>2.1.2</source-plugin-version>
+        <surefire-plugin-version>2.4.3</surefire-plugin-version>
+
+        <!-- Dependency version properties -->
+        <junit-version>4.7</junit-version>
+        <log4j-version>1.2.14</log4j-version>
+    </properties>
+
+    <url>http://repo.openehealth.org/confluence/display/ipf2</url>
+
+    <organization>
+        <name>Open eHealth Foundation</name>
+        <url>http://gforge.openehealth.org/</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>mrt1nz</id>
+            <name>Martin Krasser</name>
+            <email>krasserm@googlemail.com</email>
+            <organization>InterComponentWare AG</organization>
+            <organizationUrl>http://www.icw-global.com/</organizationUrl>
+            <roles>
+                <role>Developer</role>
+                <role>Administrator</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+        <developer>
+            <id>kolev</id>
+            <name>Mitko Kolev</name>
+            <email>mitko.kolev@icw.de</email>
+            <organization>InterComponentWare AG</organization>
+            <organizationUrl>http://www.icw-global.com/</organizationUrl>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>    
+        <developer>
+            <id>boris</id>
+            <name>Boris Stanojevic</name>
+            <email>boris.stanojevic@icw.de</email>
+            <organization>InterComponentWare AG</organization>
+            <organizationUrl>http://www.icw-global.com/</organizationUrl>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <distributionManagement>
+        <repository>
+            <id>openehealth.releases</id>
+            <name>Open eHealth Releases Repository</name>
+            <url>file:/data/repositories/maven2/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>openehealth.snapshots</id>
+            <name>Open eHealth Snapshots Repository</name>
+            <url>file:/data/repositories/maven2/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:git:git@github.com:krasserm/ipf-tools.git</connection>
+        <developerConnection>scm:git:git@github.com:krasserm/ipf-tools.git</developerConnection>
+        <url>scm:git:git@github.com:krasserm/ipf-tools.git</url>
+    </scm>
+
+    <modules>
+        <module>ide</module>
+        <module>manager</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit-version}</version>
+            </dependency>
+        </dependencies>    
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- reporting plugins -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${javadoc-plugin-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>${surefire-report-plugin-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>${jxr-plugin-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${project-info-reports-plugin-version}</version>
+                </plugin>
+                <!-- regular plugins -->
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${compiler-plugin-version}</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire-plugin-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${assembly-plugin-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${jar-plugin-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${enforcer-plugin-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.groovy.maven</groupId>
+                    <artifactId>gmaven-plugin</artifactId>
+                    <version>${gmaven-version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.groovy</groupId>
+                            <artifactId>groovy-all</artifactId>
+                            <version>${groovy-version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.tycho</groupId>
+                    <artifactId>tycho-maven-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.tycho</groupId>
+                    <artifactId>maven-osgi-compiler-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.tycho</groupId>
+                    <artifactId>target-platform-configuration</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.tycho</groupId>
+                    <artifactId>maven-osgi-packaging-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.tycho</groupId>
+                    <artifactId>tycho-versions-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${release-plugin-version}</version>
+                    <configuration>
+                        <preparationGoals>clean verify install</preparationGoals>
+                    </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${resources-plugin-version}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>  
+                        <manifestFile>META-INF/MANIFEST.MF</manifestFile>
+                    </archive> 
+                </configuration>
+            </plugin>  
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${source-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+              </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.tycho</groupId>
+                <artifactId>tycho-maven-plugin</artifactId>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.tycho</groupId>
+                <artifactId>maven-osgi-packaging-plugin</artifactId>
+                <configuration>
+                    <strictVersions>false</strictVersions>
+                </configuration>                
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.tycho</groupId>
+                <artifactId>target-platform-configuration</artifactId>
+                <configuration>
+                    <resolver>p2</resolver>
+                        <target>
+                            <artifact>
+                                <groupId>org.openehealth.ipf.tools.ide</groupId>
+                                <artifactId>org.openehealth.ipf.tools.ide.targetplatform</artifactId>
+                                <version>${project.version}</version>
+                                <classifier>ide_target</classifier>
+                            </artifact>
+                        </target>
+                    <ignoreTychoRepositories>false</ignoreTychoRepositories>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.tycho</groupId>
+                <artifactId>tycho-versions-plugin</artifactId>
+            </plugin>            
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>.</directory>
+                <includes>
+                    <include>META-INF/**/*</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${javadoc-plugin-version}</version>
+                <inherited>false</inherited>
+                <configuration>
+                    <links>
+                        <link>http://java.sun.com/javase/6/docs/api/</link>
+                        <link>http://java.sun.com/javaee/5/docs/api/</link>
+                        <link>http://hl7api.sourceforge.net/apidocs/</link>
+                        <link>http://groovy.codehaus.org/api/</link>
+                        <link>http://activemq.apache.org/camel/maven/camel-core/apidocs/</link>
+                        <link>http://static.springframework.org/spring/docs/2.5.x/api/</link>
+                    </links>
+                    <source>1.5</source>
+                    <aggregate>true</aggregate>
+                    <linksource>true</linksource>
+                    <excludePackageNames>*.tutorials,*.test</excludePackageNames>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${surefire-report-plugin-version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>openehealth.releases</id>
+            <name>Open eHealth Maven Repository</name>
+            <url>http://repo.openehealth.org/maven2/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>openehealth.snapshots</id>
+            <name>Open eHealth Maven Repository</name>
+            <url>http://repo.openehealth.org/maven2/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    
+    <repositories>
+        <repository>
+            <id>openehealth.releases</id>
+            <name>Open eHealth Maven Repository</name>
+            <url>http://repo.openehealth.org/maven2/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>openehealth.snapshots</id>
+            <name>Open eHealth Maven Repository</name>
+            <url>http://repo.openehealth.org/maven2/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>java.net</id>
+            <name>java.net Maven Repository</name>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
+        <repository>
+            <id>codehaus</id>
+            <name>Codehaus Maven Repository</name>
+            <url>http://repository.codehaus.org</url>
+        </repository>        
+    </repositories>
+
+</project>

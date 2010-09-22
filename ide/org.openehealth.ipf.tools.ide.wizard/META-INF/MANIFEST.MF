@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: IPF IDE Wizard plug-in
 Bundle-SymbolicName: org.openehealth.ipf.tools.ide.wizard;singleton:=true
-Bundle-Version: 0.0.0
+Bundle-Version: 2.2.0.qualifier
 Bundle-Activator: org.openehealth.ipf.tools.ide.wizard.osgi.NewIpfProjectWizardActivator
 Bundle-Vendor: Open eHealth Foundation
 Bundle-Localization: plugin

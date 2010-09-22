@@ -2,7 +2,7 @@
 <feature
       id="org.openehealth.ipf.tools.ide.feature"
       label="IPF IDE"
-      version="0.0.0"
+      version="2.2.0.qualifier"
       provider-name="Open eHealth Foundation">
 
    <description url="http://repo.openehealth.org">
@@ -219,7 +219,7 @@
    </license>
 
    <requires>
-      <import feature="org.openehealth.ipf.runtime.feature" version="1.7" match="greaterOrEqual"/>
+      <import feature="org.openehealth.ipf.runtime.feature" version="2.2" match="greaterOrEqual"/>
    </requires>
 
    <plugin
