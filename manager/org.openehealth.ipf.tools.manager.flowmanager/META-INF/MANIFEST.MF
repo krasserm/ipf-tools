@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: IPF Manager FlowManager
 Bundle-SymbolicName: org.openehealth.ipf.tools.manager.flowmanager;singleton:=true
-Bundle-Version: 0.0.0
+Bundle-Version: 2.2.0.qualifier
 Bundle-Activator: org.openehealth.ipf.tools.manager.flowmanager.Activator
 Bundle-Vendor: Open eHealth Foundation
 Bundle-ActivationPolicy: lazy

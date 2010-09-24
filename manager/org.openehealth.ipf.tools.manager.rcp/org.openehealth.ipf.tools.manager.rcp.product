@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="IPF Manager" uid="org.openehealth.ipf.tools.manager" id="org.openehealth.ipf.tools.manager.application.product" application="org.openehealth.ipf.tools.manager.application.application" useFeatures="false" includeLaunchers="false">
+<product name="IPF Manager" uid="org.openehealth.ipf.tools.manager" id="org.openehealth.ipf.tools.manager.application.product" application="org.openehealth.ipf.tools.manager.application.application" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.openehealth.ipf.tools.manager.application/icons/oehf.png"/>
@@ -247,7 +247,6 @@
       <plugin id="com.springsource.javax.annotation"/>
       <plugin id="com.springsource.javax.persistence"/>
       <plugin id="com.springsource.javax.transaction"/>
-      <plugin id="org.apache.servicemix.specs.stax-api-1.0"/>
       <plugin id="com.springsource.net.sf.cglib"/>
       <plugin id="com.springsource.org.aopalliance"/>
       <plugin id="com.springsource.org.apache.commons.codec"/>
@@ -275,6 +274,7 @@
       <plugin id="com.springsource.slf4j.org.apache.commons.logging"/>
       <plugin id="groovy-all"/>
       <plugin id="org.apache.commons.codec"/>
+      <plugin id="org.apache.servicemix.specs.stax-api-1.0"/>
       <plugin id="org.eclipse.compare.core"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
@@ -283,16 +283,8 @@
       <plugin id="org.eclipse.core.databinding.property"/>
       <plugin id="org.eclipse.core.expressions"/>
       <plugin id="org.eclipse.core.filesystem"/>
-      <plugin id="org.eclipse.core.filesystem.hpux.PA_RISC" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.hpux.ia64_32" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.linux.ppc" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.linux.x86" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.linux.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.macosx" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.qnx.x86" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.solaris.sparc" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.core.filesystem.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
@@ -311,29 +303,10 @@
       <plugin id="org.eclipse.jface.text"/>
       <plugin id="org.eclipse.osgi"/>
       <plugin id="org.eclipse.swt"/>
-      <plugin id="org.eclipse.swt.carbon.macosx" fragment="true"/>
-      <plugin id="org.eclipse.swt.cocoa.macosx" fragment="true"/>
-      <plugin id="org.eclipse.swt.cocoa.macosx.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.ppc" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.s390" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.s390x" fragment="true"/>
       <plugin id="org.eclipse.swt.gtk.linux.x86" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.solaris.sparc" fragment="true"/>
-      <plugin id="org.eclipse.swt.gtk.solaris.x86" fragment="true"/>
-      <plugin id="org.eclipse.swt.motif.aix.ppc" fragment="true"/>
-      <plugin id="org.eclipse.swt.motif.hpux.PA_RISC" fragment="true"/>
-      <plugin id="org.eclipse.swt.motif.hpux.ia64_32" fragment="true"/>
-      <plugin id="org.eclipse.swt.motif.linux.x86" fragment="true"/>
-      <plugin id="org.eclipse.swt.motif.solaris.sparc" fragment="true"/>
-      <plugin id="org.eclipse.swt.photon.qnx.x86" fragment="true"/>
       <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.swt.wpf.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.text"/>
       <plugin id="org.eclipse.ui"/>
-      <plugin id="org.eclipse.ui.carbon" fragment="true"/>
-      <plugin id="org.eclipse.ui.cocoa" fragment="true"/>
       <plugin id="org.eclipse.ui.console"/>
       <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.views"/>
@@ -342,6 +315,8 @@
       <plugin id="org.eclipse.ui.workbench.texteditor"/>
       <plugin id="org.openehealth.ipf.commons.commons-core"/>
       <plugin id="org.openehealth.ipf.commons.commons-flow"/>
+      <plugin id="org.openehealth.ipf.osgi.osgi-config-flow-repository" fragment="true"/>
+      <plugin id="org.openehealth.ipf.osgi.osgi-config-log" fragment="true"/>
       <plugin id="org.openehealth.ipf.tools.manager.application"/>
       <plugin id="org.openehealth.ipf.tools.manager.commons.logging.properties" fragment="true"/>
       <plugin id="org.openehealth.ipf.tools.manager.connection"/>
@@ -351,14 +326,17 @@
       <plugin id="org.springframework.aop"/>
       <plugin id="org.springframework.beans"/>
       <plugin id="org.springframework.context"/>
+      <plugin id="org.springframework.core"/>
+      <plugin id="org.springframework.jdbc"/>
       <plugin id="org.springframework.orm"/>
       <plugin id="org.springframework.transaction"/>
    </plugins>
 
    <features>
-      <feature id="org.openehealth.ipf.runtime.feature"/>
-      <feature id="org.openehealth.ipf.tools.manager.feature"/>
-      <feature id="org.eclipse.rcp" version="3.5.0.v20090519-9SA0FwxFv6x089WEf-TWh11"/>
+      <feature id="org.openehealth.ipf.runtime.feature" version="0.0.0"/>
+      <feature id="org.openehealth.ipf.tools.manager.feature" version="0.0.0"/>
+      <feature id="org.openehealth.ipf.tools.manager.rcp.feature" version="0.0.0"/>
+      <!--feature id="org.eclipse.rcp" version="3.5.0.v20090519-9SA0FwxFv6x089WEf-TWh11"/-->
    </features>
 
 

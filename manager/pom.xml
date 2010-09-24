@@ -14,4 +14,19 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
         <version>2.2.0-SNAPSHOT</version>
     </parent>
 
+    <modules>
+        <module>org.openehealth.ipf.tools.manager.targetplatform</module>
+        <module>org.openehealth.ipf.tools.manager.commons.logging.properties</module>
+        <module>org.openehealth.ipf.tools.manager.connection</module>
+        <module>org.openehealth.ipf.tools.manager.connection.test</module>
+        <module>org.openehealth.ipf.tools.manager.flowmanager</module>
+        <module>org.openehealth.ipf.tools.manager.flowmanager.test</module>
+        <module>org.openehealth.ipf.tools.manager.jmxexplorer</module>
+        <module>org.openehealth.ipf.tools.manager.jmxexplorer.test</module>
+        <module>org.openehealth.ipf.tools.manager.log4j.properties</module>
+        <module>org.openehealth.ipf.tools.manager.application</module>
+        <module>org.openehealth.ipf.tools.manager.application.test</module>
+        <module>org.openehealth.ipf.tools.manager.feature</module>
+        <module>org.openehealth.ipf.tools.manager.rcp</module>
+    </modules>
 </project>

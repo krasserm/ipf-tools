@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+        <description>IPF Manager update site.</description>
+        <feature 
+            url="features/org.openehealth.ipf.tools.manager.feature_2.2.0.qualifier.jar" 
+            id="org.openehealth.ipf.tools.manager.feature" 
+            version="2.2.0.qualifier"> 
+            <category name="IPF Tools"/> 
+        </feature>
+
+        <category-def name="IPF Tools"
+            label="IPF Tools">
+        </category-def>
+</site>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?pde version="3.5"?>
+<target name="Eclipse Core Target">
+  <locations>
+    <!--location includeAllPlatforms="false" includeMode="slicer"
+    type="InstallableUnit">
+      <unit id="org.eclipse.sdk.ide" version="3.5.2.M20100211-1343" />
+      <repository location="http://download.eclipse.org/releases/galileo" />
+    </location-->
+    <location includeAllPlatforms="false" includeMode="slicer"
+    type="InstallableUnit">
+      <unit id="org.eclipse.rcp" version="3.5.0.v20090519-9SA0FwxFv6x089WEf-TWh11" />
+      <repository location="http://download.eclipse.org/eclipse/updates/3.5/" />
+    </location>
+    <location includeAllPlatforms="false" includeMode="planner"
+    type="InstallableUnit">
+      <repository location="http://repo.openehealth.org/sites/ipf-tools/runtime/updatesites/development/" />
+    </location>	
+  </locations>
+</target>

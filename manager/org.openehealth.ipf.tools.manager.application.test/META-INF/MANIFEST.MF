@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: IPF Manager Application Test plug-in
 Bundle-SymbolicName: org.openehealth.ipf.tools.manager.application.test
-Bundle-Version: 0.0.0
+Bundle-Version: 2.2.0.qualifier
 Bundle-Vendor: Open eHealth Foundation
 Require-Bundle: org.junit;bundle-version="[3.8.0,4.0.0)",
  org.openehealth.ipf.tools.manager.application,

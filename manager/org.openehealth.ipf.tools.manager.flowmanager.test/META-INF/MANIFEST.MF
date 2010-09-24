@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Flow Manager Test
 Bundle-SymbolicName: org.openehealth.ipf.tools.manager.flowmanager.test
-Bundle-Version: 0.0.0
+Bundle-Version: 2.2.0.qualifier
 Bundle-Activator: org.openehealth.ipf.tools.manager.flowmanager.test.Activator
 Bundle-Vendor: Open eHealth Foundation
 Import-Package: org.eclipse.core.runtime;version="3.4.0",

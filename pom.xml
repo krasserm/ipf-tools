@@ -298,15 +298,27 @@
                 <artifactId>target-platform-configuration</artifactId>
                 <configuration>
                     <resolver>p2</resolver>
-                        <target>
-                            <artifact>
-                                <groupId>org.openehealth.ipf.tools.ide</groupId>
-                                <artifactId>org.openehealth.ipf.tools.ide.targetplatform</artifactId>
-                                <version>${project.version}</version>
-                                <classifier>ide_target</classifier>
-                            </artifact>
-                        </target>
+                    <target>
+                        <artifact>
+                            <groupId>org.openehealth.ipf.tools.manager</groupId>
+                            <artifactId>org.openehealth.ipf.tools.manager.targetplatform</artifactId>
+                            <version>${project.version}</version>
+                            <classifier>ide_target</classifier>
+                        </artifact>
+                    </target>
                     <ignoreTychoRepositories>false</ignoreTychoRepositories>
+                    <environments>
+                        <environment>
+                            <os>win32</os>
+                            <ws>win32</ws>
+                            <arch>x86</arch>
+                        </environment>
+                        <environment>
+                            <os>linux</os>
+                            <ws>gtk</ws>
+                            <arch>x86</arch>
+                        </environment>
+                    </environments>
                 </configuration>
             </plugin>
             <plugin>
