@@ -4,7 +4,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.openehealth.ipf.tools.manager</groupId>
-    <artifactId>org.openehealth.ipf.tools.manager.flowmanager.test</artifactId>
+    <artifactId>org.openehealth.ipf.tools.manager.jmxexplorer</artifactId>
     <packaging>eclipse-test-plugin</packaging>
     <name>IPF-Tools - Manager JMX Explorer</name>
     
