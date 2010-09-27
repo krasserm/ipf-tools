@@ -29,5 +29,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
         <module>org.openehealth.ipf.tools.manager.feature</module>
         <module>org.openehealth.ipf.tools.manager.rcp.feature</module>
         <module>org.openehealth.ipf.tools.manager.rcp</module>
+        <module>org.openehealth.ipf.tools.manager.updatesite</module>
     </modules>
 </project>
