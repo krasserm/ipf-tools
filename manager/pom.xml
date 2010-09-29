@@ -15,7 +15,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     </parent>
 
     <modules>
-        <module>org.openehealth.ipf.tools.manager.targetplatform</module>
         <module>org.openehealth.ipf.tools.manager.commons.logging.properties</module>
         <module>org.openehealth.ipf.tools.manager.connection</module>
         <module>org.openehealth.ipf.tools.manager.connection.test</module>

@@ -20,7 +20,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
         <module>org.openehealth.ipf.tools.ide.wizard</module>
         <module>org.openehealth.ipf.tools.ide.wizard.test</module>
         <module>org.openehealth.ipf.tools.ide.feature</module>
-        <module>org.openehealth.ipf.tools.ide.targetplatform</module>
         <module>org.openehealth.ipf.tools.ide.updatesite</module>
     </modules>
 

@@ -11,27 +11,18 @@
         <!-- Project configurations -->
         <!-- project.build.sourceEncoding>UTF-8</project.build.sourceEncoding -->
         <tycho-version>0.9.0</tycho-version>
+		<runtime-repository-url>http://repo.openehealth.org/sites/ipf-tools/runtime/updatesites/development/</runtime-repository-url>
         <!-- Report version properties -->
         <surefire-report-plugin-version>2.4.3</surefire-report-plugin-version>
         <jxr-plugin-version>2.1</jxr-plugin-version>
         <project-info-reports-plugin-version>2.1.2</project-info-reports-plugin-version>
-        <maven-dsldoc-plugin-version>1.1</maven-dsldoc-plugin-version>
-        
-
-        <!-- Default Bundle Properties -->
-        <osgi.bundle.vendor>Open eHealth Foundation</osgi.bundle.vendor>
-        <osgi.bundle.license>Apache License, Version 2.0;url=http://www.apache.org/licenses/LICENSE-2.0;description=OpenSource license provided by the Apache foundation</osgi.bundle.license>
-        <osgi.bundle.category>healthcare</osgi.bundle.category>
-        
 
         <!-- Plugin version properties -->
         <assembly-plugin-version>2.2-beta-2</assembly-plugin-version>
-        <bundle-plugin-version>2.1.0</bundle-plugin-version>
         <enforcer-plugin-version>1.0-beta-1</enforcer-plugin-version>
         <jar-plugin-version>2.2</jar-plugin-version>
         <javadoc-plugin-version>2.6.1</javadoc-plugin-version>
         <compiler-plugin-version>2.3.2</compiler-plugin-version>
-        <release-plugin-version>2.0</release-plugin-version>
         <resources-plugin-version>2.4.2</resources-plugin-version>
         <source-plugin-version>2.1.2</source-plugin-version>
         <surefire-plugin-version>2.4.3</surefire-plugin-version>
@@ -75,7 +66,7 @@
         <developer>
             <id>boris</id>
             <name>Boris Stanojevic</name>
-            <email>boris.stanojevic@icw.de</email>
+            <email>stanojevic.boris@googlemail.com</email>
             <organization>InterComponentWare AG</organization>
             <organizationUrl>http://www.icw-global.com/</organizationUrl>
             <roles>
@@ -194,18 +185,6 @@
                     <version>${enforcer-plugin-version}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.codehaus.groovy.maven</groupId>
-                    <artifactId>gmaven-plugin</artifactId>
-                    <version>${gmaven-version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.codehaus.groovy</groupId>
-                            <artifactId>groovy-all</artifactId>
-                            <version>${groovy-version}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-                <plugin>
                     <groupId>org.sonatype.tycho</groupId>
                     <artifactId>tycho-maven-plugin</artifactId>
                     <version>${tycho-version}</version>
@@ -250,13 +229,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
             <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>${release-plugin-version}</version>
-                    <configuration>
-                        <preparationGoals>clean verify install</preparationGoals>
-                    </configuration>
-            </plugin>
-            <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>${resources-plugin-version}</version>
             </plugin>
@@ -298,7 +270,7 @@
                 <artifactId>target-platform-configuration</artifactId>
                 <configuration>
                     <resolver>p2</resolver>
-                    <target>
+                    <!--target>
                         <artifact>
                             <groupId>org.openehealth.ipf.tools.manager</groupId>
                             <artifactId>org.openehealth.ipf.tools.manager.targetplatform</artifactId>
@@ -306,7 +278,7 @@
                             <classifier>ide_target</classifier>
                         </artifact>
                     </target>
-                    <ignoreTychoRepositories>false</ignoreTychoRepositories>
+                    <ignoreTychoRepositories>false</ignoreTychoRepositories-->
                     <environments>
                         <environment>
                             <os>win32</os>
@@ -366,64 +338,17 @@
         </plugins>
     </reporting>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>openehealth.releases</id>
-            <name>Open eHealth Maven Repository</name>
-            <url>http://repo.openehealth.org/maven2/releases</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>openehealth.snapshots</id>
-            <name>Open eHealth Maven Repository</name>
-            <url>http://repo.openehealth.org/maven2/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-    
     <repositories>
         <repository>
-            <id>openehealth.releases</id>
-            <name>Open eHealth Maven Repository</name>
-            <url>http://repo.openehealth.org/maven2/releases</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+            <id>update-3.5</id>
+            <url>http://download.eclipse.org/eclipse/updates/3.5/</url>
+            <layout>p2</layout>
         </repository>
         <repository>
-            <id>openehealth.snapshots</id>
-            <name>Open eHealth Maven Repository</name>
-            <url>http://repo.openehealth.org/maven2/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+            <id>ipf.runtime.snapshots</id>
+            <name>Open eHealth IPF Runtime P2 Repository</name>
+            <url>${runtime-repository-url}</url>
+            <layout>p2</layout>
         </repository>
-        <repository>
-            <id>java.net</id>
-            <name>java.net Maven Repository</name>
-            <url>http://download.java.net/maven/2/</url>
-        </repository>
-        <repository>
-            <id>codehaus</id>
-            <name>Codehaus Maven Repository</name>
-            <url>http://repository.codehaus.org</url>
-        </repository>        
     </repositories>
-
 </project>
