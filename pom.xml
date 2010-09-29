@@ -11,7 +11,7 @@
         <!-- Project configurations -->
         <!-- project.build.sourceEncoding>UTF-8</project.build.sourceEncoding -->
         <tycho-version>0.9.0</tycho-version>
-		<runtime-repository-url>http://repo.openehealth.org/sites/ipf-tools/runtime/updatesites/development/</runtime-repository-url>
+        <runtime-repository-url>http://repo.openehealth.org/sites/ipf-tools/runtime/updatesites/development/</runtime-repository-url>
         <!-- Report version properties -->
         <surefire-report-plugin-version>2.4.3</surefire-report-plugin-version>
         <jxr-plugin-version>2.1</jxr-plugin-version>
@@ -337,6 +337,15 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <properties>
+                <runtime-repository-url>http://repo.openehealth.org/sites/ipf-tools/runtime/updatesites/releases/${project.version}/</runtime-repository-url>
+            </properties>
+        </profile>
+    </profiles>
 
     <repositories>
         <repository>
